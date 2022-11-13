@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from image_utils import to_grayscale, edge_detect
 
 # Load the image:
-img = np.array(Image.open('images/modrian_pic.jpg'))
+img = np.array(Image.open('../images/modrian_pic.jpg'))
 
 # To grayscale:
 bw_img = to_grayscale(img)

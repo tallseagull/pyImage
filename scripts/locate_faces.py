@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw
 import face_recognition
 
 # Load the image of the beatles:
-file_to_id = 'images/beatles/BeatlesMainW.jpg'
+file_to_id = '../images/beatles/BeatlesMainW.jpg'
 beatles = face_recognition.load_image_file(file_to_id)
 
 # Find the locations of the faces (using the library):

@@ -1,4 +1,7 @@
 numpy
+cmake
 face_recognition
 Pillow
 matplotlib
+streamlit
+python-slugify

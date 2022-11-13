@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from image_utils import to_grayscale, edge_detect, get_circle
 
 # Load the image:
-input_image = Image.open('images/billiards.jpg')
+input_image = Image.open('../images/billiards.jpg')
 billiard_img = np.array(input_image)
 # To grayscale:
 billiard_img = to_grayscale(billiard_img).astype(np.int16)
@@ -40,7 +40,7 @@ for x,y,r in filtered_res:
     print(f"x={x}, y={y}, R={r}")
 
 # Now plot the circles on the image - load the original image and draw the circles on it:
-input_image = Image.open('images/billiards.jpg')
+input_image = Image.open('../images/billiards.jpg')
 draw_result = ImageDraw.Draw(input_image)
 for x, y, r in filtered_res:
     draw_result.ellipse((x-r, y-r, x+r, y+r), outline=(255,0,0,0))

@@ -24,7 +24,7 @@ res_draw.line(expand_polygon(landmarks[0]['left_eye'] + [landmarks[0]['left_eye'
 res_draw.line(expand_polygon(landmarks[0]['right_eye'] + [landmarks[0]['right_eye'][0]], grow_pixels), fill='blue', width=4)
 
 # Now add the mustache. First we load it and crop it to a box containing just the mustache area:
-mustache = Image.open('images/mustache.png')
+mustache = Image.open('../images/mustache.png')
 mustache = mustache.crop(mustache.getbbox())
 
 # Find the location for the mustache - it needs to sit between these points:

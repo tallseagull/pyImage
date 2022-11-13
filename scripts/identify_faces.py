@@ -3,7 +3,7 @@ import face_recognition
 
 # The file we want to work on:
 # file_to_id = 'images/beatles/BeatlesMainW.jpg'
-file_to_id = 'images/beatles/john_and_yoko.jpg'
+file_to_id = '../images/beatles/john_and_yoko.jpg'
 
 # Load the beatles pictures and "learn" them:
 paul = face_recognition.load_image_file('images/beatles/known/Paul.jpg')
