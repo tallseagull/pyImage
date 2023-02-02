@@ -1,5 +1,7 @@
 import json
 import os
+
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import face_recognition
 from slugify import slugify
@@ -124,7 +126,7 @@ class FaceID:
         self.known_encodings.append(encoding)
         self.known_names.append(name)
 
-    def identify_faces(self, filename):
+    def identify_faces(self, filename, tolerance=0.6):
         """
         Find faces in a file
         :param filename: name of file to load. File is expected to be in our folder (self.folder) under 'images'
@@ -144,13 +146,13 @@ class FaceID:
         face_names = []
         for face_encoding in face_encodings:
             # See if the face is a match for the known face(s)
-            matches = face_recognition.compare_faces(self.known_encodings, face_encoding)
+            distances = face_recognition.face_distance(self.known_encodings, face_encoding)
             name = "Unknown"
 
-            # # If a match was found in known_face_encodings, just use the first one.
-            if True in matches:
-                first_match_index = matches.index(True)
-                name = self.known_names[first_match_index]
+            # Take the lowest distance, if it is lower than tolerance
+            closest = np.argmin(distances)
+            if distances[closest] <= tolerance:
+                name = self.known_names[closest]
 
             face_names.append(name)
 
